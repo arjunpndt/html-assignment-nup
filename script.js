@@ -1,6 +1,10 @@
+// usersInfo stores the user details
 var usersInfo = [];
+
+// function to save user details
 var saveUserDetails = (userName, email, gender, country, githubID) => {
   const newRow = document.createElement("tr");
+  // will use this to store the user details in local storage now just using it to store in array
   updateLocalStorage(
     userName.value,
     email.value,
@@ -8,6 +12,8 @@ var saveUserDetails = (userName, email, gender, country, githubID) => {
     country.value,
     githubID.value
   );
+
+  // creating a new row in the table and adding the user details
   newRow.innerHTML = `
         <td>${userName.value}</td>
         <td>${email.value}</td>
@@ -18,7 +24,7 @@ var saveUserDetails = (userName, email, gender, country, githubID) => {
 
   document.querySelector("#userDataTable tbody").appendChild(newRow);
   document.getElementById("userDataTable").style.display = "block";
-  document.getElementById("table").scrollIntoView({ behavior: "smooth" });
+  // document.getElementById("table").scrollIntoView({ behavior: "smooth" });
   document.getElementById("form").reset();
 };
 
